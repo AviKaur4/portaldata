@@ -1,0 +1,14 @@
+Package: portaldata
+Type: Package
+Title: Holds and analyses data for the Portal Project in Arizona
+Version: 0.1.0
+Authors@R: person("Avi", "Kaur", email = "avineetkaurchahal@gmail.com", role = c("aut", "cre"))
+Maintainer: Avi Kaur <avineetkaurchahal@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL(>=2)
+Encoding: UTF-8
+LazyData: true
+Depends: 
+  R(>= 4.2.2)
+RoxygenNote: 7.2.3
