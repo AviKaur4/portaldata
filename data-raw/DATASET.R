@@ -20,3 +20,9 @@ install.packages("pkgdown")
 library(pkgdown)
 library(usethis)
 use_pkgdown()
+
+build_site()
+
+## Customize the website
+
+build_site()

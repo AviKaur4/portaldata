@@ -1,6 +1,7 @@
 pandoc: '2.18'
 pkgdown: 2.0.7
 pkgdown_sha: ~
-articles: {}
-last_built: 2023-05-04T21:17Z
+articles:
+  intro: intro.html
+last_built: 2023-05-04T22:28Z
 

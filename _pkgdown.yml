@@ -1,4 +1,5 @@
 url: ~
 template:
-  bootstrap: cosmo
+  bootstrap: 5
+  bootswatch: sketchy
 
