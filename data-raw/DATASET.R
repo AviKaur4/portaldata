@@ -14,3 +14,9 @@ str(taxo)
 nrow(taxo)
 colnames(taxo)
 document()
+
+#pkgdown to create the website
+install.packages("pkgdown")
+library(pkgdown)
+library(usethis)
+use_pkgdown()
