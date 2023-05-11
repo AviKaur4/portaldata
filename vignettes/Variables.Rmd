@@ -1,0 +1,127 @@
+---
+title: "Variables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Variables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(dplyr)
+```
+
+
+
+```{r}
+diversity <- read.csv(file = "../data-raw/Dryad_Data.csv")
+head(diversity)
+```
+
+```{r}
+butterfly_diversity <- diversity$Butterfly.Diversity 
+floral_diversity <- diversity$Floral.Diversity
+butterfly_richness <- diversity$Butterfly.Richness
+head(butterfly_diversity)
+str(butterfly_diversity)
+```
+
+
+
+```{r}
+cor(diversity$Butterfly.Diversity, diversity$Floral.Diversity) #Positive Correlation
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(data = diversity, mapping = aes(x = butterfly_diversity, y = floral_diversity)) +
+geom_point(size = 3, color = "blue", alpha = 0.5) +
+scale_y_log10() +
+scale_x_log10()
+```
+
+```{r}
+cor(diversity$Butterfly.Diversity, diversity$Grasshopper.Attacks) # Low Correlation
+
+```
+
+```{r}
+ggplot(data = diversity, mapping = aes(x = butterfly_diversity, y = Grasshopper.Attacks)) +
+geom_point(size = 3, color = "blue", alpha = 0.5) +
+scale_y_log10() +
+scale_x_log10()
+```
+```{r}
+butterfly_test <- subset(diversity, select=c(Butterfly.Diversity, Floral.Diversity, Butterfly.Richness, Floral.Richness))
+str(butterfly_test)
+```
+
+```{r}
+cor(diversity$Site.Area, diversity$Floral.Diversity) #positive correlation
+```
+
+```{r}
+ggplot(data = diversity, mapping = aes(x = Site.Area, y = Floral.Diversity)) +
+geom_point(size = 3, color = "blue", alpha = 0.5) +
+scale_y_log10() +
+scale_x_log10()
+```
+
+```{r}
+cor(diversity$Site.Isolation, diversity$Floral.Diversity) #negative correlation
+```
+
+```{r}
+ggplot(data = diversity, mapping = aes(x = Site.Isolation, y = Floral.Diversity)) +
+geom_point(size = 3, color = "blue", alpha = 0.5) +
+scale_y_log10() +
+scale_x_log10()
+```
+
+
+```{r}
+cor(diversity$Site.Isolation, diversity$Predator.Attacks) #negative correlation
+```
+
+```{r}
+ggplot(data = diversity, mapping = aes(x = Site.Isolation, y = Predator.Attacks), color = "gray", alpha = 0.5) +
+  geom_point(color = "gray") +
+  geom_point(data = diversity, mapping = aes(x = Site.Isolation, y = Predator.Attacks), color = "red", alpha = 0.6) +
+  geom_smooth() +
+geom_smooth(data = diversity, mapping = aes(x = Site.Isolation, y = Predator.Attacks))
+```
+```{r}
+cor(diversity$Butterfly.Diversity, diversity$Predator.Attacks) #positive correlation
+
+```
+
+```{r}
+ggplot(data = diversity, mapping = aes(x = Predator.Attacks, y = Butterfly.Diversity), color = "gray", alpha = 0.5) +
+  geom_point(color = "gray") +
+  geom_point(data = diversity, mapping = aes(x = Predator.Attacks, y = Butterfly.Diversity), color = "red", alpha = 0.6) +
+  geom_smooth() +
+geom_smooth(data = diversity, mapping = aes(x = Predator.Attacks, y = Butterfly.Diversity))
+```
+```{r}
+cor(diversity$Site.Area, diversity$Predator.Attacks) #Positive Correlation
+
+```
+
+```{r}
+ggplot(data = diversity, mapping = aes(x = Site.Area, y = Predator.Attacks)) +
+geom_point(size = 3, color = "blue", alpha = 0.5) +
+scale_y_log10() +
+scale_x_log10()
+```
+```{r}
+ggplot(data = diversity, mapping = aes(x = Site.Area, y = Predator.Attacks), color = "gray", alpha = 0.5) +
+  geom_point(color = "gray") +
+  geom_point(data = diversity, mapping = aes(x = Site.Area, y = Predator.Attacks), color = "red", alpha = 0.6) +
+  geom_smooth() +
+geom_smooth(data = diversity, mapping = aes(x = Site.Area, y = Predator.Attacks))
+```

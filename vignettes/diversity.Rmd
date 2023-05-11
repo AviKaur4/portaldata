@@ -1,0 +1,49 @@
+---
+title: "diversity"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{diversity}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(rotl) # package to get trees from Open Tree of Life
+library(ape)
+```
+
+Get some OTT ids for a set of Taxa
+```{r}
+tnrs <- tnrs_match_names(c("Lepidoptera", "Homo"))
+
+
+tnrs <- tnrs_match_names(names = "Lepidoptera")
+class(tnrs)
+```
+
+
+The most commonly observed butterfly species are the common ringlet (Coenonympha tullia, 597 observations) and the Clouded Sulphur (Colias philodice, 587 observations). The more rarely observed butterfly species are eastern pine elfin (Callophrys niphon, one observation) and the coral hairstreak (Satyrium titus, one observation).
+```{r}
+c("Danaus plexippus", "Glaucopsyche lygdamus", "Speyeria aphrodite", "Colias philodice") -> butterfly_orders
+```
+
+```{r}
+tnrs_match_names(names = butterfly_orders) -> butterfly_order_tnrs
+butterfly_order_tnrs
+```
+```{r}
+tol_induced_subtree(ott_ids = butterfly_order_tnrs$ott_id) -> butterfly_order_tree
+butterfly_order_tree
+```
+
+```{r}
+plot.phylo(x = butterfly_order_tree)
+```
+
+
+
+
