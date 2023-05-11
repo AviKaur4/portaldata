@@ -1,13 +1,11 @@
 ## code to prepare `DATASET` dataset goes here
 
 taxo <- read.csv(file = "data-raw/portal-species-taxonomy.csv")
-download.file(url = "portal-species-taxonomy.csv", destfile = "data-raw/portal-species-taxonomy.csv")
-function.portal <- read.csv("data-raw/portal-species-taxonomy.csv")
 
 
 ## code to prepare `DATASET` dataset goes here
 
-taxo <- read.csv(file = "data-raw/portal-species-taxonomy.csv")
+taxo <- read.csv(file = "data/portal-species-taxonomy.csv")
 usethis::use_data(taxo, overwrite = TRUE)
 head(taxo)
 str(taxo)
@@ -26,3 +24,12 @@ build_site()
 ## Customize the website
 
 build_site()
+
+
+use_vignette(name = "intro")
+
+use_vignette(name = "diversity")
+
+use_vignette(name = "Variables")
+
+build_site
