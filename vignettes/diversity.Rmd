@@ -27,21 +27,23 @@ class(tnrs)
 
 
 The most commonly observed butterfly species are the common ringlet (Coenonympha tullia, 597 observations) and the Clouded Sulphur (Colias philodice, 587 observations). The more rarely observed butterfly species are eastern pine elfin (Callophrys niphon, one observation) and the coral hairstreak (Satyrium titus, one observation).
+
 ```{r}
-c("Danaus plexippus", "Glaucopsyche lygdamus", "Speyeria aphrodite", "Colias philodice") -> butterfly_orders
+c("Coenonympha tullia", "Colias philodice", "Callophrys niphon", "Satyrium titus") -> butterfly_orderss
+```
+
+
+```{r}
+tnrs_match_names(names = butterfly_orderss) -> butterfly_orders_tnrs
+butterfly_orders_tnrs
+```
+```{r}
+tol_induced_subtree(ott_ids = butterfly_orders_tnrs$ott_id) -> butterfly_orders_tree
+butterfly_orders_tree
 ```
 
 ```{r}
-tnrs_match_names(names = butterfly_orders) -> butterfly_order_tnrs
-butterfly_order_tnrs
-```
-```{r}
-tol_induced_subtree(ott_ids = butterfly_order_tnrs$ott_id) -> butterfly_order_tree
-butterfly_order_tree
-```
-
-```{r}
-plot.phylo(x = butterfly_order_tree)
+plot.phylo(x = butterfly_orders_tree)
 ```
 
 
