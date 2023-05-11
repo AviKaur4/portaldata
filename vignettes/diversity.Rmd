@@ -26,7 +26,7 @@ class(tnrs)
 ```
 
 
-The most commonly observed butterfly species are the common ringlet (Coenonympha tullia, 597 observations) and the Clouded Sulphur (Colias philodice, 587 observations). The more rarely observed butterfly species are eastern pine elfin (Callophrys niphon, one observation) and the coral hairstreak (Satyrium titus, one observation).
+The butterfly species most commonly observed are the common ringlet Coenonympha tullia with 597 observations and the Clouded Sulphur: Colias philodice with 587 observations. The more rarely observed butterfly species are eastern pine elfin: Callophrys niphon with one observation and the coral hairstreak with Satyrium titus with one observation.
 
 ```{r}
 c("Coenonympha tullia", "Colias philodice", "Callophrys niphon", "Satyrium titus") -> butterfly_orderss
