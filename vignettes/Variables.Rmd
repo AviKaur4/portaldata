@@ -45,6 +45,10 @@ scale_y_log10() +
 scale_x_log10()
 ```
 
+### Floral diversity has a positive effect on butterfly diversity. Positive correlation is the positive relationship between two variables as the movement of the variables' is positively linked.
+
+
+
 ```{r}
 cor(diversity$Butterfly.Diversity, diversity$Grasshopper.Attacks) # Low Correlation
 
@@ -56,10 +60,8 @@ geom_point(size = 3, color = "blue", alpha = 0.5) +
 scale_y_log10() +
 scale_x_log10()
 ```
-```{r}
-butterfly_test <- subset(diversity, select=c(Butterfly.Diversity, Floral.Diversity, Butterfly.Richness, Floral.Richness))
-str(butterfly_test)
-```
+
+### As we have seen before, the correlation coefficient is at 0.31 falling in the range of having low correlation therefore contributing to a lack of a linear relationship. There is little to none correlation between the Butterfly Diversity and Grasshopper Attacks. 
 
 ```{r}
 cor(diversity$Site.Area, diversity$Floral.Diversity) #positive correlation
@@ -67,46 +69,14 @@ cor(diversity$Site.Area, diversity$Floral.Diversity) #positive correlation
 
 ```{r}
 ggplot(data = diversity, mapping = aes(x = Site.Area, y = Floral.Diversity)) +
-geom_point(size = 3, color = "blue", alpha = 0.5) +
+geom_point(size = 3, color = "red", alpha = 0.5) +
 scale_y_log10() +
 scale_x_log10()
 ```
 
-```{r}
-cor(diversity$Site.Isolation, diversity$Floral.Diversity) #negative correlation
-```
-
-```{r}
-ggplot(data = diversity, mapping = aes(x = Site.Isolation, y = Floral.Diversity)) +
-geom_point(size = 3, color = "blue", alpha = 0.5) +
-scale_y_log10() +
-scale_x_log10()
-```
+### The correlation coefficient falls at 0.58 depicting a positive correlation that there is a relationship between the site area increasing floral diversity.
 
 
-```{r}
-cor(diversity$Site.Isolation, diversity$Predator.Attacks) #negative correlation
-```
-
-```{r}
-ggplot(data = diversity, mapping = aes(x = Site.Isolation, y = Predator.Attacks), color = "gray", alpha = 0.5) +
-  geom_point(color = "gray") +
-  geom_point(data = diversity, mapping = aes(x = Site.Isolation, y = Predator.Attacks), color = "red", alpha = 0.6) +
-  geom_smooth() +
-geom_smooth(data = diversity, mapping = aes(x = Site.Isolation, y = Predator.Attacks))
-```
-```{r}
-cor(diversity$Butterfly.Diversity, diversity$Predator.Attacks) #positive correlation
-
-```
-
-```{r}
-ggplot(data = diversity, mapping = aes(x = Predator.Attacks, y = Butterfly.Diversity), color = "gray", alpha = 0.5) +
-  geom_point(color = "gray") +
-  geom_point(data = diversity, mapping = aes(x = Predator.Attacks, y = Butterfly.Diversity), color = "red", alpha = 0.6) +
-  geom_smooth() +
-geom_smooth(data = diversity, mapping = aes(x = Predator.Attacks, y = Butterfly.Diversity))
-```
 ```{r}
 cor(diversity$Site.Area, diversity$Predator.Attacks) #Positive Correlation
 
@@ -125,3 +95,6 @@ ggplot(data = diversity, mapping = aes(x = Site.Area, y = Predator.Attacks), col
   geom_smooth() +
 geom_smooth(data = diversity, mapping = aes(x = Site.Area, y = Predator.Attacks))
 ```
+
+### The Site Area and Predator Attacks are strongly correlated with a correlation coefficient of 0.96 which indicates there is a strong linear relationship between the two. This implies that the predation occurs in more larger and isolated sites wherease predators correspond to more landscape characteristics rather than the butterfly community.
+
